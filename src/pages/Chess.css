@@ -1,0 +1,113 @@
+/* Chess.css */
+
+/* Buttons */
+.buttonStyleBlue,
+.buttonStyleGreen,
+.buttonStyleGray {
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.buttonStyleBlue {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.buttonStyleBlue:hover {
+  background-color: #1c86ee;
+  box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.buttonStyleGreen {
+  background-color: #32cd32;
+  color: white;
+}
+
+.buttonStyleGreen:hover {
+  background-color: #2eb82e;
+  box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4);
+  transform: translateY(-2px);
+}
+
+.buttonStyleGray {
+  background-color: #a9a9a9;
+  color: white;
+}
+
+.buttonStyleGray:hover {
+  background-color: #8f8f8f;
+  box-shadow: 0 5px 15px rgba(169, 169, 169, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Title */
+h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Container */
+div {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Chessboard container */
+div > .chessboardContainer {
+  display: inline-block;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background-color: rgba(255, 255, 255, 0.05); /* subtle highlight */
+}
+
+/* Center buttons nicely */
+div > button {
+  min-width: 150px;
+}
+/* Winner message banner */
+.winner-banner {
+  margin-top: 30px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Rematch button */
+.rematch-btn {
+  margin-top: 15px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: #1e90ff;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.rematch-btn:hover {
+  background: #1c86ee;
+  box-shadow: 0 6px 18px rgba(30, 144, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

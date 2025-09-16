@@ -1,0 +1,123 @@
+.chess-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.chessboard-container {
+  display: inline-block;
+  border: 2px solid #333;
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.light {
+  background-color: #f0d9b5;
+}
+
+.dark {
+  background-color: #b58863;
+}
+
+.piece {
+  user-select: none;;
+}
+
+.piece.w {
+  color: white;
+  text-shadow: 0 0 2px black;
+}
+
+.piece.b {
+  color: black;
+}
+
+/* Move history */
+.move-history {
+  max-height: 640px;
+  overflow-y: auto;
+  width: 220px;
+  border: 2px solid #333;
+  padding: 10px;
+  background-color: #fff;
+  color: #000; /* black text for readability */
+}
+
+.move-history h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.move-history-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.move-history-table th,
+.move-history-table td {
+  border: 1px solid #333;
+  padding: 4px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #fff; /* white background for table */
+  color: #000;
+}
+
+/* Game over & rematch */
+.game-over-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.game-over {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 10px;
+}
+
+.rematch-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.rematch-button:hover {
+  background-color: #45a049;
+}
+.highlight {
+  outline: 3px solid yellow;
+  box-sizing: border-box;
+}
+.selected {
+  outline: 3px solid blue;
+  box-sizing: border-box;
+}
+.check {
+  outline: 3px solid red;
+  box-sizing: border-box;
+}
+.checkmate {
+  outline: 3px solid darkred;
+  box-sizing: border-box;
+}
+.stalemate {
+  outline: 3px solid gray;
+  box-sizing: border-box;
+}
