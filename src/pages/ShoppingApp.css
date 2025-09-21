@@ -31,6 +31,24 @@ body {
   color: #555;
 }
 
+.cart-toggle {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #2d2f7f, #6c63ff);
+  border: none;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cart-toggle:hover {
+  background: linear-gradient(135deg, #1f2160, #5a52e0);
+  transform: scale(1.05);
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -105,5 +123,124 @@ body {
 }
 
 .add-button:active {
+  transform: scale(0.97);
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px; /* hidden by default */
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 16px 0 0 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.4s ease;
+  z-index: 1000;
+}
+
+.cart-sidebar.open {
+  right: 0; /* slide in */
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2d2f7f;
+}
+
+.close-cart {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.empty-cart {
+  color: #666;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1rem;
+}
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 12px;
+}
+
+.cart-item-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.cart-item-price {
+  font-size: 0.9rem;
+  color: #2d2f7f;
+}
+.cart-footer {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-total {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.checkout-button {
+  background: linear-gradient(135deg, #2d2f7f, #6c63ff);
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-button:hover {
+  background: linear-gradient(135deg, #1f2160, #5a52e0);
+  transform: scale(1.05);
+}
+
+.checkout-button:active {
   transform: scale(0.97);
 }

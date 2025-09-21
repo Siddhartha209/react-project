@@ -1,5 +1,9 @@
 import { useState } from "react";
 import "./ShoppingApp.css";
+import product1 from "./assets/img/product1.jpeg";
+import product2 from "./assets/img/product2.jpg";
+import product3 from "./assets/img/product3.jpeg";
+import product4 from "./assets/img/product4.jpeg";
 
 export default function ShoppingApp() {
   const products = [
@@ -8,28 +12,28 @@ export default function ShoppingApp() {
       name: "Wireless Headphones",
       price: "$99.99",
       description: "High-quality sound with noise cancellation.",
-      image: "/img/product1.jpg",
+      image: product1,
     },
     {
       id: 2,
       name: "Smart Watch",
       price: "$149.99",
       description: "Track fitness, heart rate, and notifications.",
-      image: "/img/product2.jpg",
+      image: product2,
     },
     {
       id: 3,
       name: "Gaming Mouse",
       price: "$59.99",
       description: "RGB lighting with customizable buttons.",
-      image: "/img/product3.jpg",
+      image: product3,
     },
     {
       id: 4,
       name: "4K Monitor",
       price: "$299.99",
       description: "Crisp visuals with ultra-thin bezels.",
-      image: "/img/product4.jpg",
+      image: product4,
     },
   ];
 
@@ -42,6 +46,12 @@ export default function ShoppingApp() {
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
+  };
+
+  const getTotal = () => {
+    return cart
+      .reduce((sum, item) => sum + parseFloat(item.price.replace("$", "")), 0)
+      .toFixed(2);
   };
 
   return (
@@ -81,17 +91,23 @@ export default function ShoppingApp() {
         {cart.length === 0 ? (
           <p className="empty-cart">Your cart is empty.</p>
         ) : (
-          <ul className="cart-list">
-            {cart.map((item, index) => (
-              <li key={index} className="cart-item">
-                <img src={item.image} alt={item.name} />
-                <div>
-                  <p className="cart-item-name">{item.name}</p>
-                  <p className="cart-item-price">{item.price}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <>
+            <ul className="cart-list">
+              {cart.map((item, index) => (
+                <li key={index} className="cart-item">
+                  <img src={item.image} alt={item.name} />
+                  <div>
+                    <p className="cart-item-name">{item.name}</p>
+                    <p className="cart-item-price">{item.price}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <div className="cart-footer">
+              <p className="cart-total">Total: ${getTotal()}</p>
+              <button className="checkout-button">Proceed to Checkout</button>
+            </div>
+          </>
         )}
       </div>
     </div>
