@@ -8,35 +8,40 @@ export default function ShoppingApp() {
       name: "Wireless Headphones",
       price: "$99.99",
       description: "High-quality sound with noise cancellation.",
-      image: "/images/product1.jpg",
+      image: "/img/product1.jpg",
     },
     {
       id: 2,
       name: "Smart Watch",
       price: "$149.99",
       description: "Track fitness, heart rate, and notifications.",
-      image: "/images/product2.jpg",
+      image: "/img/product2.jpg",
     },
     {
       id: 3,
       name: "Gaming Mouse",
       price: "$59.99",
       description: "RGB lighting with customizable buttons.",
-      image: "/images/product3.jpg",
+      image: "/img/product3.jpg",
     },
     {
       id: 4,
       name: "4K Monitor",
       price: "$299.99",
       description: "Crisp visuals with ultra-thin bezels.",
-      image: "/images/product4.jpg",
+      image: "/img/product4.jpg",
     },
   ];
 
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const addToCart = (product) => {
     setCart([...cart, product]);
+  };
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
   };
 
   return (
@@ -45,6 +50,9 @@ export default function ShoppingApp() {
       <header className="hero">
         <h2>Welcome to ShopEase</h2>
         <p>Find the best gadgets at unbeatable prices!</p>
+        <button className="cart-toggle" onClick={toggleCart}>
+          Cart ({cart.length})
+        </button>
       </header>
 
       {/* Product Grid */}
@@ -63,6 +71,29 @@ export default function ShoppingApp() {
           </div>
         ))}
       </main>
+
+      {/* Cart Sidebar */}
+      <div className={`cart-sidebar ${isCartOpen ? "open" : ""}`}>
+        <div className="cart-header">
+          <h3>Your Cart</h3>
+          <button className="close-cart" onClick={toggleCart}>✕</button>
+        </div>
+        {cart.length === 0 ? (
+          <p className="empty-cart">Your cart is empty.</p>
+        ) : (
+          <ul className="cart-list">
+            {cart.map((item, index) => (
+              <li key={index} className="cart-item">
+                <img src={item.image} alt={item.name} />
+                <div>
+                  <p className="cart-item-name">{item.name}</p>
+                  <p className="cart-item-price">{item.price}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
